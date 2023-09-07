@@ -327,7 +327,7 @@ def process_for_pd(boundary):
     print('finish!')
 
     k_fold = 10
-    dir_name = 'mbti-{}-{}'.format(boundary[0], boundary[1])
+    dir_name = '../DATA-bin/kaggle-mbti/mbti-{}-{}'.format(boundary[0], boundary[1])
     print('=====ready to pack mbti dataset to k(4)-folds=====')
 
     for data_type, dataset_np in (('seg_dataset', seg_dataset_np), ('doc_dataset', doc_dataset_np)):

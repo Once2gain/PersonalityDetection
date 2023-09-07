@@ -605,7 +605,7 @@ def process_for_pd():
     print('finish!')
 
     k_fold = 10
-    dir_name = '{}-{}'.format(2, 4)
+    dir_name = '../DATA-bin/essay_big5/{}-{}'.format(2, 4)
     print('=====ready to pack big5 dataset to k-folds=====')
 
     for data_type, dataset_np in (('seg_dataset', seg_dataset_np), ('doc_dataset', doc_dataset_np)):
