@@ -49,6 +49,11 @@ Essay-BigFive Dataset
 2. create config files (.yaml) and set training hyper-parameters;
 3. code `hydra_train_PD_tasks.sh` and start training by `sh hydra_train_PD_tasks.sh`.
 
+#### fairseq mainly modified
+- Model: `fairseq/models/personality_detection/`
+- Criterions: `fairseq/criterions/personality_detection.py`
+- Task: `fairseq/tasks/personality_detection.py`
+
 ### Sketch Map of ADF
 
 <img src="https://github.com/Once2gain/PersonalityDetection/assets/66986397/c231db06-49b9-4886-97d9-c5772e9f26d3" width="450px">
