@@ -311,8 +311,8 @@ def pack2dataset(dataset_pack, split, data_type='seg_dataset', output_dir=''):
 
     else:
         save_to_np('feats/seg/mairesse', np.array(seg_mairesse, dtype=object))
-        save_to_np('feats/seg/senticnet', np.array(seg_emotion, dtype=object))
-        save_to_np('feats/seg/emotion', np.array(seg_senticnet, dtype=object))
+        save_to_np('feats/seg/senticnet', np.array(seg_senticnet, dtype=object))
+        save_to_np('feats/seg/emotion', np.array(seg_emotion, dtype=object))
 
         save_to_np('feats/doc/mairesse', np.array(mairesse))
         save_to_np('feats/doc/senticnet', np.array(senticnet))
