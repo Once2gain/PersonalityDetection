@@ -1,0 +1,101 @@
+common:
+  fp16: true
+#  on_cpu_convert_precision: true
+#  fp16_init_scale: 4
+#  threshold_loss_scale: 1
+  fp16_no_flatten_grads: true
+#  fp16_scale_window: 128
+  log_format: json
+  log_interval: 200
+
+task:
+  _name: personality_detection
+  data: /data/tangqirui/fairseq/DATA-bin/kaggle-mbti/mbti-3-5/fold-0/doc_dataset
+  num_classes: 2
+  max_positions: 512
+  classify_task: doc
+  personality: mbti
+  class_name: TF
+  feats_type: [doc_mairesse, doc_senticnet, doc_emotion, doc_senticnet_dis, seg_mairesse, seg_senticnet, seg_emotion]
+  vote: true
+
+checkpoint:
+  finetune_from_model: /data/tangqirui/fairseq/download/model.pt
+#  finetune_from_model: /data/tangqirui/fairseq/outputs/2023-08-05/15-12-37/checkpoints/checkpoint_best.pt
+  best_checkpoint_metric: accuracy
+  maximize_best_checkpoint_metric: true
+  no_epoch_checkpoints: true
+  no_save: true
+
+criterion:
+  _name: personality_detection
+
+dataset:
+  batch_size: 8
+  required_batch_size_multiple: 1
+  max_tokens: 1500000
+
+optimization:
+  clip_norm: 0.0
+  lr: [0]
+  max_update: 2928
+  max_epoch: 12
+  update_freq: [4]
+
+optimizer:
+  _name: composite
+  dynamic_groups: false
+  groups:
+    soft:
+      lr_float: 5e-05
+      optimizer:
+        _name: adam
+        adam_betas: [0.9,0.98]
+        adam_eps: 1e-06
+        weight_decay: 0.1
+      lr_scheduler:
+        _name: polynomial_decay
+        warmup_updates: 300
+    sub_classifier:
+      lr_float: 4e-05
+      optimizer:
+        _name: adam
+        adam_betas: [0.9,0.98]
+        adam_eps: 1e-06
+        weight_decay: 0.15
+      lr_scheduler:
+        _name: polynomial_decay
+        warmup_updates: 300
+    solid:
+      lr_float: 4e-06
+      optimizer:
+        _name: adam
+        adam_betas: [0.9,0.98]
+        adam_eps: 1e-06
+        weight_decay: 0.15
+      lr_scheduler:
+        _name: polynomial_decay
+        warmup_updates: 600
+#    param_sigmas:
+#      lr_float: 1e-03
+#      optimizer:
+#        _name: adam
+#        adam_eps: 1e-07
+#        weight_decay: 0.0
+#      lr_scheduler:
+#        _name: fixed
+#        warmup_updates: 300
+
+
+lr_scheduler: pass_through
+
+model:
+  _name: seg2doc_denoise_vote
+
+  dropout: 0.1
+  attention_dropout: 0.1
+  pooler_dropout: 0.45
+
+  random_initial_layers: 0
+  freeze_embeddings: false
+  n_trans_layers_to_freeze: 0
