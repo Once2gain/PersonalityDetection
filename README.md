@@ -54,9 +54,10 @@ Essay-BigFive Dataset
 - Criterions: `fairseq/criterions/personality_detection.py`
 - Task: `fairseq/tasks/personality_detection.py`
 
+
 ### Sketch Map of ADF
 
-<img src="https://github.com/Once2gain/PersonalityDetection/assets/66986397/c231db06-49b9-4886-97d9-c5772e9f26d3" width="450px">
+<img src="https://github.com/Once2gain/PersonalityDetection/assets/66986397/32306470-d653-45d4-a075-cf23c4438094" width="450px">
 
 
 
