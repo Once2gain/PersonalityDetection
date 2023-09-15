@@ -48,6 +48,7 @@ Essay-BigFive Dataset
 1. make sure fairseq (https://github.com/facebookresearch/fairseq) has been correctly installed;
 2. create config files (.yaml) and set training hyper-parameters;
 3. code `hydra_train_PD_tasks.sh` and start training by `sh hydra_train_PD_tasks.sh`.
+4. Ours setting Hyper-parameters (contains epoches, composite optimizer, dropout, etc.) in experiments is written all in config files under `DATA-bin/essay_big5/2-4/fold-0/doc_dataset/config` and `kaggle-mbti/mbti-3-5/fold-0/doc_dataset/config`.
 
 #### fairseq mainly modified
 - Model: `fairseq/models/personality_detection/`
