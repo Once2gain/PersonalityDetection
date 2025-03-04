@@ -62,6 +62,6 @@ Essay-BigFive Dataset
 
 ### Update
 
-<img src="https://github.com/user-attachments/assets/254449a2-ef22-4bea-a9c3-a4e0c5fdeff2" width="900px">
+<img src="https://github.com/user-attachments/assets/254449a2-ef22-4bea-a9c3-a4e0c5fdeff2" width="600px">
 
 
