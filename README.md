@@ -58,10 +58,6 @@ Essay-BigFive Dataset
 
 ### Sketch Map of ADF
 
-<img src="https://github.com/Once2gain/PersonalityDetection/assets/66986397/251f87c4-3012-42c2-a333-ac7a93bfa65f" width="450px">
-
-### Update
-
 <img src="https://github.com/user-attachments/assets/254449a2-ef22-4bea-a9c3-a4e0c5fdeff2" width="600px">
 
 
